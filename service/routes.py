@@ -57,17 +57,17 @@ def create_accounts():
         jsonify(message), status.HTTP_201_CREATED, {"Location": location_url}
     )
 
+
 ######################################################################
 # LIST ALL ACCOUNTS
 ######################################################################
-
 @app.route("/accounts", methods=["GET"])
 def list_accounts():
     """
     List all Accounts
     This endpoint will list all Accounts
     """
-    app.logger.info(f"Request to list all Accounts")
+    app.logger.info("Request to list all Accounts")
     accounts = Account.all()
     accounts_list = [a.serialize() for a in accounts]
     app.logger.info(f"Returned {len(accounts_list)} accounts")
